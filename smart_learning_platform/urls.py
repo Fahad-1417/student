@@ -3,13 +3,11 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-
-    # ربط تطبيق الطالب
+    
+    # اجعل صفحة الطالب هي الرئيسية
+    path('', include('student.urls')),
+    
     path('student/', include('student.urls')),
-
-    # ربط تطبيق المعلم
     path('instructor/', include('instructor.urls')),
-
-    # ربط تطبيق الإدارة
     path('dashboard/', include('dashboard.urls')),
 ]
