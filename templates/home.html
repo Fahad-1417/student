@@ -1,40 +1,88 @@
+{% load static %}
 {% include "header.html" %}
 
 <main style="font-family: 'Segoe UI', sans-serif; padding: 40px 20px; background-color: #f3f4f6; text-align: center;">
+
+    <!-- الترحيب -->
     <h1 style="font-size: 36px; color: #1e3a8a; margin-bottom: 20px;">
-        👋 مرحبًا بك في المنصة التعليمية الذكية
+        👋 مرحبًا بك في أكاديمية تَميُّز، منصتك التعليمية الذكية
     </h1>
     <p style="font-size: 18px; color: #374151; max-width: 600px; margin: auto;">
         منصة تفاعلية مصممة خصيصًا لدعم الطلاب والمعلمين وتقديم تجربة تعليمية سلسة وحديثة. اختر دورك وابدأ رحلتك!
     </p>
 
-    <section style="padding: 60px 20px; background-color: #f9fafb; text-align: center; font-family: 'Segoe UI', sans-serif;">
-    <h2 style="font-size: 28px; color: #1e3a8a; margin-bottom: 40px;">خدمات المنصة</h2>
+    <!-- خدمات المنصة -->
+    <section style="padding: 60px 20px; background-color: #f9fafb; text-align: center;">
+        <h2 style="font-size: 28px; color: #1e3a8a; margin-bottom: 40px;">خدمات المنصة</h2>
 
-    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; max-width: 1000px; margin: auto;">
-        
-        <div style="background-color: white; padding: 20px; border-radius: 12px; width: 180px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
-            <img src="https://cdn-icons-png.flaticon.com/512/2721/2721291.png" alt="تعليم مدمج" width="60" height="60" />
-            <p style="margin-top: 15px; color: #1e293b;">تعليم مدمج</p>
+        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; max-width: 1000px; margin: auto;">
+            
+            <div style="background-color: white; padding: 20px; border-radius: 12px; width: 180px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+                <img src="https://cdn-icons-png.flaticon.com/512/2721/2721291.png" alt="تعليم مدمج" width="60" height="60" />
+                <p style="margin-top: 15px; color: #1e293b;">تعليم مدمج</p>
+            </div>
+
+            <div style="background-color: white; padding: 20px; border-radius: 12px; width: 180px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+                <img src="https://cdn-icons-png.flaticon.com/512/3135/3135743.png" alt="مناهج تفاعلية" width="60" height="60" />
+                <p style="margin-top: 15px; color: #1e293b;">مناهج تفاعلية</p>
+            </div>
+
+            <div style="background-color: white; padding: 20px; border-radius: 12px; width: 180px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+                <img src="https://cdn-icons-png.flaticon.com/512/4729/4729430.png" alt="الشهادات الاحترافية" width="60" height="60" />
+                <p style="margin-top: 15px; color: #1e293b;">تأهيل للشهادات الاحترافية</p>
+            </div>
+
+            <div style="background-color: white; padding: 20px; border-radius: 12px; width: 180px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+                <img src="https://cdn-icons-png.flaticon.com/512/8943/8943377.png" alt="دعم فني" width="60" height="60" />
+                <p style="margin-top: 15px; color: #1e293b;">دعم فني</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- قسم عن الأكاديمية -->
+    <section style="padding: 80px 100px; background-color: #fff; font-family: 'Segoe UI', sans-serif; direction: rtl;">
+    <div style="display: flex; flex-wrap: wrap; gap: 40px;">
+
+        <!-- المحتوى النصي على اليمين -->
+        <div style="flex: 2; min-width: 300px;">
+            <h4 style="color: #6b7280; font-size: 20px; margin-bottom: 10px;">عن الأكاديمية</h4>
+            <h2 style="font-size: 36px; font-weight: bold; color: #111827; margin-bottom: 20px;">أكاديمية تَميُّز التعليمية</h2>
+            <p style="font-size: 18px; color: #4b5563; line-height: 1.8; margin-bottom: 30px;">
+                إحدى مبادرات التطوير الأكاديمي. تهدف الأكاديمية إلى بناء قدرات المتعلمين في المجالات الحديثة المرتبطة بالتقنيات الذكية وتمكينهم من مواكبة متطلبات سوق العمل المتغير.
+            </p>
+
+            <!-- البطاقات -->
+            <div style="display: flex; flex-wrap: wrap; gap: 20px;">
+                <div style="flex: 1; min-width: 220px; background-color: #f9fafb; padding: 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+                    <h3 style="color: #059669; font-weight: bold; font-size: 20px;">الرؤية</h3>
+                    <p style="color: #374151;">أكاديمية وطنية بمعايير عالمية لإعداد وتطوير الكفاءات في التقنيات المتقدمة.</p>
+                </div>
+                <div style="flex: 1; min-width: 220px; background-color: #f9fafb; padding: 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+                    <h3 style="color: #059669; font-weight: bold; font-size: 20px;">الأهداف</h3>
+                    <p style="color: #374151;">تأهيل الكوادر الوطنية للوظائف النوعية ومواكبة التغيّرات التقنية ومجالات الأعمال.</p>
+                </div>
+                <div style="flex: 1; min-width: 220px; background-color: #f9fafb; padding: 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+                    <h3 style="color: #059669; font-weight: bold; font-size: 20px;">الرسالة</h3>
+                    <p style="color: #374151;">تنمية رأس المال البشري وتمكين الشباب بأساليب تعليم رقمية متقدمة وفعّالة.</p>
+                </div>
+            </div>
         </div>
 
-        <div style="background-color: white; padding: 20px; border-radius: 12px; width: 180px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
-            <img src="https://cdn-icons-png.flaticon.com/512/3135/3135743.png" alt="مناهج تفاعلية" width="60" height="60" />
-            <p style="margin-top: 15px; color: #1e293b;">مناهج تفاعلية</p>
-        </div>
-
-        <div style="background-color: white; padding: 20px; border-radius: 12px; width: 180px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
-            <img src="https://cdn-icons-png.flaticon.com/512/4729/4729430.png" alt="الشهادات الاحترافية" width="60" height="60" />
-            <p style="margin-top: 15px; color: #1e293b;">تأهيل للشهادات الاحترافية</p>
-        </div>
-
-        <div style="background-color: white; padding: 20px; border-radius: 12px; width: 180px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
-            <img src="https://cdn-icons-png.flaticon.com/512/8943/8943377.png" alt="دعم فني" width="60" height="60" />
-            <p style="margin-top: 15px; color: #1e293b;">دعم فني</p>
+        <!-- الصور على اليسار -->
+        <div style="flex: 1; min-width: 300px; display: flex; flex-direction: column; gap: 20px;">
+            <div style="background-color: white; padding: 8px; border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.1);">
+                <img src="{% static 'aiai.jpg' %}" alt="مختبر" style="width: 100%; border-radius: 8px;">
+            </div>
+            <div style="background-color: white; padding: 8px; border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.1);">
+                <img src="{% static 'moo2.jpg' %}" alt="روبوت" style="width: 100%; border-radius: 8px;">
+            </div>
         </div>
 
     </div>
 </section>
+
+
 
 </main>
 

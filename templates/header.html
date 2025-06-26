@@ -1,23 +1,28 @@
-<header style="background-color: #0f1b3d; padding: 175px 350px; font-family: 'Segoe UI', sans-serif; direction: rtl;">
-    <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; color: white;">
+{% load static %}
 
-        <!-- الشعار على اليمين -->
-        <div style="flex: 1;">
-            <a href="/" style="text-decoration: none;">
-                <img src="https://www.aol.edu.sa/themes/aol/assets/img/logo.svg" alt="شعار" style="height: 70px;">
-            </a>
-        </div>
+<header style="background-color: #0f1b3d; padding: 120px 60px 40px 60px; font-family: 'Segoe UI', sans-serif; direction: rtl; position: relative; height: 250px;">
 
-        <!-- روابط التنقل -->
-        <nav style="flex: 5;">
-            <ul style="list-style: none; margin: 0; padding: 0; display: flex; gap: 50px; justify-content: flex-end; align-items: center;">
-                <li><a href="/" style="color: white; text-decoration: none; font-weight: bold; font-size: 18px;">الرئيسية</a></li>
-                <li><a href="/courses/" style="color: white; text-decoration: none; font-size: 18px;">الدورات الاحترافية</a></li>
-                <li><a href="/services/" style="color: white; text-decoration: none; font-size: 18px;">خدمات الطلاب</a></li>
-                <li><a href="/about/" style="color: white; text-decoration: none; font-size: 18px;">عن المنصة</a></li>
-                <li><a href="/register/" style="color: white; text-decoration: none; font-size: 18px;">التسجيل</a></li>
-            </ul>
-        </nav>
-
+    <!-- الشعار في أعلى الشريط - يمين -->
+    <div style="position: absolute; top: 1px; right: 35px;">
+        <a href="/" style="text-decoration: none;">
+            <img src="{% static 'academy_logo.png' %}" alt="شعار الأكاديمية" style="height: 140px;">
+        </a>
     </div>
+
+    <!-- الأيقونات في أعلى الشريط - يسار -->
+    <nav style="position: absolute; top: 40px; left: 60px;">
+        <ul style="list-style: none; margin: 0; padding: 0; display: flex; gap: 40px; align-items: center;">
+            <li><a href="/" style="color: white; text-decoration: none; font-weight: bold; font-size: 20px;">الرئيسية</a></li>
+            <li><a href="/courses/" style="color: white; text-decoration: none; font-size: 20px;">الدورات الاحترافية</a></li>
+            <li><a href="/services/" style="color: white; text-decoration: none; font-size: 20px;">خدمات الطلاب</a></li>
+            <li><a href="{% url 'about' %}" style="color: white; text-decoration: none; font-size: 20px;">عن المنصة</a></li>
+
+            {% if user.is_authenticated %}
+                <li><a href="{% url 'logout' %}" style="color: white; text-decoration: none; font-size: 20px;">تسجيل الخروج</a></li>
+            {% else %}
+                <li><a href="{% url 'login' %}" style="color: white; text-decoration: none; font-size: 20px;">التسجيل</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+
 </header>

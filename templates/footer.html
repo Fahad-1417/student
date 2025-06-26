@@ -1,50 +1,49 @@
-<footer style="background-color: #0f1b3d; color: white; padding: 50px 20px; font-family: 'Segoe UI', sans-serif; font-size: 14px;">
-    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; max-width: 1200px; margin: auto;">
+{% load static %}
 
-        <!-- عن الشركة -->
-        <div style="flex: 1 1 200px; margin: 20px;">
-            <h3 style="color: #ffffff;">عن الشركة</h3>
-            <ul style="list-style: none; padding: 0;">
+<footer style="background-color: #0f1b3d; color: white; padding: 40px 100px; font-family: 'Segoe UI', sans-serif; direction: rtl;">
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 40px;">
+
+        <!-- الشعار والوصف -->
+        <div style="flex: 1; min-width: 220px;">
+            <img src="{% static 'academy_logo.png' %}" alt="شعار الأكاديمية" style="height: 100px; margin-bottom: 10px;">
+            <p style="font-size: 14px; color: #d1d5db;">شركة تعليمية مساهمة ومعتمدة من هيئة سوق المال</p>
+            <div style="margin-top: 10px;">
+                <a href="#" style="margin-left: 10px;"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="facebook" width="20"></a>
+                <a href="#" style="margin-left: 10px;"><img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="instagram" width="20"></a>
+                <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="twitter" width="20"></a>
+            </div>
+        </div>
+
+        <!-- روابط -->
+        <div style="flex: 1; min-width: 180px;">
+            <h4>عن الشركة</h4>
+            <ul style="list-style: none; padding: 0; font-size: 14px;">
                 <li>من نحن</li>
                 <li>أعضاء مجلس الإدارة</li>
                 <li>الاعتمادات والشراكات الاستراتيجية</li>
-                <li>عملائنا</li>
+                <li>عملاؤنا</li>
             </ul>
         </div>
 
-        <!-- مراكزنا -->
-        <div style="flex: 1 1 200px; margin: 20px;">
-            <h3 style="color: #ffffff;">مراكزنا</h3>
-            <ul style="list-style: none; padding: 0;">
-                <li>معهد أكاديمية التعليم العالي للتدريب</li>
-                <li>بوابة التعليم عن بُعد</li>
-                <li>المركز الذكي للغات</li>
-                <li>برنامج تنمية وتوظيف رأس المال البشري</li>
-            </ul>
-        </div>
-
-        <!-- روابط أخرى -->
-        <div style="flex: 1 1 200px; margin: 20px;">
-            <h3 style="color: #ffffff;">روابط أخرى</h3>
-            <ul style="list-style: none; padding: 0;">
+        <div style="flex: 1; min-width: 180px;">
+            <h4>روابط أخرى</h4>
+            <ul style="list-style: none; padding: 0; font-size: 14px;">
                 <li>علاقات المستثمرين</li>
                 <li>المبادرات المجتمعية</li>
                 <li>الأخبار</li>
-                <li>التوظيف</li>
+                <li>الوظائف</li>
                 <li>تواصل معنا</li>
             </ul>
         </div>
 
-        <!-- شعار ومواقع التواصل -->
-        <div style="flex: 1 1 250px; margin: 20px; text-align: center;">
-            <img src="https://www.aol.edu.sa/themes/aol/assets/img/logo.svg" alt="شعار الأكاديمية" style="width: 150px; margin-bottom: 15px;">
-            <p>شركة تعليمية مساهمة ومعتمدة من هيئة سوق المال</p>
-            <div style="margin-top: 10px;">
-                <a href="#" style="margin: 0 5px;"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111393.png" width="20" alt="LinkedIn" /></a>
-                <a href="#" style="margin: 0 5px;"><img src="https://cdn-icons-png.flaticon.com/512/733/733635.png" width="20" alt="Twitter" /></a>
-                <a href="#" style="margin: 0 5px;"><img src="https://cdn-icons-png.flaticon.com/512/733/733614.png" width="20" alt="Instagram" /></a>
-                <a href="#" style="margin: 0 5px;"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" width="20" alt="Facebook" /></a>
-            </div>
+        <div style="flex: 1; min-width: 180px;">
+            <h4>مراكزنا</h4>
+            <ul style="list-style: none; padding: 0; font-size: 14px;">
+                <li>معهد أكاديمية التعليم العالي للتدريب</li>
+                <li>بوابة التعليم عن بعد</li>
+                <li>المركز الذكي للذات</li>
+                <li>برامج التنمية وقيادات رأس المال البشري</li>
+            </ul>
         </div>
 
     </div>
