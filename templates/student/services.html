@@ -1,0 +1,150 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>خدمات الطلاب</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .service-box {
+            background-color: white;
+            width: 300px;
+            margin: 20px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .service-box:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-box img {
+            margin-top: 30px;
+            height: 100px;
+        }
+
+        .service-box h3 {
+            color: #0f1b3d;
+            padding: 20px;
+        }
+
+        .services-section {
+            display: none;
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .grid-item {
+            background-color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 0 8px rgba(0,0,0,0.1);
+        }
+
+        .grid-item img {
+            height: 70px;
+            margin-bottom: 15px;
+        }
+
+        .grid-item p {
+            font-size: 16px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ✅ الشريط العلوي -->
+    {% include 'header.html' %}
+
+    <!-- ✅ القائمة الرئيسية -->
+    <div class="container">
+        <div class="service-box" onclick="showSection('regular')">
+            <img src="{% static 'h2.png' %}" alt="الخدمة الأولى">
+            <h3>خدمات طلبة الانتظام</h3>
+        </div>
+        <div class="service-box" onclick="showSection('affiliate')">
+            <img src="{% static 'h3.png' %}" alt="الخدمة الثانية">
+            <h3>خدمات التعليم المطور للانتساب</h3>
+        </div>
+        <div class="service-box" onclick="showSection('elearning')">
+            <img src="{% static 'h1.png' %}" alt="الخدمة الثالثة">
+            <h3>خدمات برامج التعليم الإلكتروني</h3>
+        </div>
+    </div>
+
+    <!-- ✅ خدمات طلبة الانتظام -->
+    <div id="regular" class="services-section">
+        <h2 style="text-align: center; color: #7a6200;">خدمات طلبة الانتظام</h2>
+        <div class="grid">
+            <div class="grid-item"><img src="{% static 'hh3.png' %}"><p>الخدمات المساندة لطلبة الانتظام</p></div>
+            <div class="grid-item"><img src="{% static 'hh1.png' %}"><p>مقررات متطلبات الجامعة</p></div>
+            <div class="grid-item"><img src="{% static 'hh2.png' %}"><p>الأدلة الإرشادية لطلبة الانتظام</p></div>
+        </div>
+    </div>
+
+    <!-- ✅ خدمات التعليم المطور للانتساب -->
+    <div id="affiliate" class="services-section">
+        <h2 style="text-align: center; color: #00695c;">خدمات التعليم المطور للانتساب</h2>
+        <div class="grid">
+            <div class="grid-item"><img src="{% static 'hhh1.png' %}"><p>الفصول الافتراضية</p></div>
+            <div class="grid-item"><img src="{% static 'hhh2.jpg' %}"><p>الاختبارات النهائية</p></div>
+            <div class="grid-item"><img src="{% static 'hhh3.jpg' %}"><p>الأسئلة الشائعة للمنتسبين</p></div>
+        </div>
+    </div>
+
+    <!-- ✅ خدمات التعليم الإلكتروني -->
+    <div id="elearning" class="services-section">
+        <h2 style="text-align: center; color: #1a237e;">خدمات التعليم الإلكتروني</h2>
+        <div class="grid">
+            <div class="grid-item"><img src="{% static 'hhh4.jpg' %}"><p>منصة التعلم الإلكتروني</p></div>
+            <div class="grid-item"><img src="{% static 'hhh5.jpg' %}"><p>الدروس المسجلة</p></div>
+            <div class="grid-item"><img src="{% static 'hhh6.jpg' %}"><p>الأدلة الإرشادية</p></div>
+        </div>
+    </div>
+
+    <!-- ✅ الشريط السفلي -->
+    {% include 'footer.html' %}
+
+    <!-- ✅ سكربت عرض الأقسام -->
+    <script>
+        function showSection(id) {
+            const sections = document.querySelectorAll('.services-section');
+            sections.forEach(sec => sec.style.display = 'none');
+            const selected = document.getElementById(id);
+            if (selected) {
+                selected.style.display = 'block';
+                selected.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    </script>
+
+</body>
+</html>

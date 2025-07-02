@@ -2,27 +2,80 @@
 
 <header style="background-color: #0f1b3d; padding: 120px 60px 40px 60px; font-family: 'Segoe UI', sans-serif; direction: rtl; position: relative; height: 250px;">
 
-    <!-- الشعار في أعلى الشريط - يمين -->
+    <!-- ✅ الشعار -->
     <div style="position: absolute; top: 1px; right: 35px;">
         <a href="/" style="text-decoration: none;">
             <img src="{% static 'academy_logo.png' %}" alt="شعار الأكاديمية" style="height: 140px;">
         </a>
     </div>
 
-    <!-- الأيقونات في أعلى الشريط - يسار -->
+    <!-- ✅ شريط التنقل -->
     <nav style="position: absolute; top: 40px; left: 60px;">
         <ul style="list-style: none; margin: 0; padding: 0; display: flex; gap: 40px; align-items: center;">
+
             <li><a href="/" style="color: white; text-decoration: none; font-weight: bold; font-size: 20px;">الرئيسية</a></li>
             <li><a href="/courses/" style="color: white; text-decoration: none; font-size: 20px;">الدورات الاحترافية</a></li>
-            <li><a href="/services/" style="color: white; text-decoration: none; font-size: 20px;">خدمات الطلاب</a></li>
+            <li><a href="{% url 'student_services' %}" style="color: white; text-decoration: none; font-size: 20px;">خدمات الطلاب</a></li>
             <li><a href="{% url 'about' %}" style="color: white; text-decoration: none; font-size: 20px;">عن المنصة</a></li>
 
             {% if user.is_authenticated %}
-                <li><a href="{% url 'logout' %}" style="color: white; text-decoration: none; font-size: 20px;">تسجيل الخروج</a></li>
+                <!-- ✅ صورة المستخدم وقائمة منسدلة -->
+                <li style="position: relative;">
+                    <div id="user-btn" style="cursor: pointer;">
+                        <img src="{% static 'hhh7.png' %}" alt="صورة المستخدم" style="height: 45px; width: 45px; border-radius: 50%;">
+                    </div>
+                    <ul id="user-dropdown" style="
+                        display: none;
+                        position: absolute;
+                        top: 55px;
+                        right: -70px;
+                        background-color: white;
+                        list-style: none;
+                        padding: 10px;
+                        border-radius: 8px;
+                        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+                        min-width: 180px;
+                        z-index: 1000;
+                        text-align: right;
+                        white-space: nowrap;
+                    ">
+                        <li style="padding: 10px;"><a href="#" style="text-decoration: none; color: #333;">📄 ملفي الشخصي</a></li>
+                        <li style="padding: 10px;"><a href="#" style="text-decoration: none; color: #333;">📚 دوراتي</a></li>
+                        <li style="padding: 10px;"><a href="{% url 'logout' %}" style="text-decoration: none; color: #c62828;">🚪 تسجيل الخروج</a></li>
+                    </ul>
+                </li>
             {% else %}
                 <li><a href="{% url 'login' %}" style="color: white; text-decoration: none; font-size: 20px;">التسجيل</a></li>
             {% endif %}
         </ul>
     </nav>
+</header>
 
- </header>
+<!-- ✅ السكربت لتفعيل القائمة عند الضغط -->
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const userBtn = document.getElementById("user-btn");
+        const dropdown = document.getElementById("user-dropdown");
+
+        if (userBtn && dropdown) {
+            let dropdownOpen = false;
+
+            userBtn.addEventListener("click", function (e) {
+                e.stopPropagation();
+                dropdownOpen = !dropdownOpen;
+                dropdown.style.display = dropdownOpen ? "block" : "none";
+            });
+
+            document.addEventListener("click", function () {
+                if (dropdownOpen) {
+                    dropdown.style.display = "none";
+                    dropdownOpen = false;
+                }
+            });
+
+            dropdown.addEventListener("click", function (e) {
+                e.stopPropagation(); // يمنع الإغلاق عند النقر داخل القائمة
+            });
+        }
+    });
+</script>
