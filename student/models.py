@@ -4,6 +4,8 @@ from django.contrib.auth.models import User
 class StudentProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     full_name = models.CharField(max_length=100)
+    phone = models.CharField(max_length=15, verbose_name="رقم الجوال", blank=True, null=True)
+    profile_picture = models.ImageField(upload_to='profiles/', verbose_name="الصورة الشخصية", blank=True, null=True)
     enrollment_date = models.DateField(auto_now_add=True)
 
     def __str__(self):

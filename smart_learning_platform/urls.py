@@ -3,6 +3,9 @@ from django.urls import path, include
 from dashboard.views import login_view, logout_view
 from django.views.generic import TemplateView
 from dashboard.views import login_view, logout_view
+from django.conf import settings
+from django.conf.urls.static import static
+
 
 
 urlpatterns = [
@@ -18,3 +21,8 @@ urlpatterns = [
 
   # الصفحة الرئيسية
 ]
+
+
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

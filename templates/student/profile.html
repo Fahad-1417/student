@@ -1,0 +1,63 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>ملفي الشخصي</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+        .profile-box {
+            max-width: 600px;
+            background-color: white;
+            margin: 40px auto;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            text-align: right;
+        }
+        .profile-box h2 {
+            color: #1a237e;
+            margin-bottom: 20px;
+        }
+        .profile-item {
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+        .profile-item span {
+            font-weight: bold;
+        }
+        .edit-button {
+            display: inline-block;
+            margin-top: 20px;
+            background-color: #1a237e;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+{% include 'header.html' %}
+
+<div class="profile-box">
+    <h2>ملفي الشخصي</h2>
+
+    <div class="profile-item"><span>الاسم:</span> {{ user.first_name }} </div>
+    <div class="profile-item"><span>البريد:</span> {{ user.email }}</div>
+    <div class="profile-item"><span>رقم الجوال:</span> {{ user.studentprofile.phone|default:"غير مضاف" }}</div>
+    <div class="profile-item"><span>تاريخ التسجيل:</span> {{ user.date_joined|date:"F j, Y" }}</div>
+
+    <a class="edit-button" href="{% url 'edit_profile' %}">⚙️ تعديل البيانات</a>
+</div>
+
+{% include 'footer.html' %}
+
+</body>
+</html>
