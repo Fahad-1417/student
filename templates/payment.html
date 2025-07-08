@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>الدفع</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f9f9f9;
+            padding: 50px;
+            text-align: center;
+        }
+        .payment-box {
+            background-color: white;
+            max-width: 500px;
+            margin: auto;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .payment-box h2 {
+            color: #1a237e;
+        }
+        .payment-box p {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+        .confirm-btn {
+            margin-top: 30px;
+            background-color: #1a237e;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .confirm-btn:hover {
+            background-color: #3949ab;
+        }
+    </style>
+</head>
+<body>
+
+<div class="payment-box">
+    <h2>إتمام عملية الدفع</h2>
+    <p>الدورة: {{ course.title }}</p>
+    <p>💰 السعر: {{ course.price }} ريال</p>
+    <p>⏳ المدة: {{ course.duration }}</p>
+    <p>📅 تاريخ البداية: {{ course.start_date }}</p>
+
+    <form method="post" style="margin-top: 30px;">
+        {% csrf_token %}
+        <button type="submit" class="confirm-btn">تأكيد الدفع</button>
+    </form>
+</div>
+
+</body>
+</html>

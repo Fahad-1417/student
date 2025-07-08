@@ -1,13 +1,14 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
-from .models import StudentProfile
+from django.contrib import messages  # ✅ لإظهار رسالة بعد الدفع
+from .models import StudentProfile, Enrollment
 from .forms import StudentProfileForm
+from instructor.models import ProfessionalCourse  # ✅ استبدال Course بالموديل الصحيح
 
 
 def home_view(request):
     return render(request, 'home.html')
-
 
 
 def student_services_view(request):
@@ -26,6 +27,8 @@ def profile_view(request):
         'user': user,
         'profile': profile
     })
+
+
 @login_required
 def edit_profile(request):
     user = request.user
@@ -59,3 +62,29 @@ def edit_profile(request):
         'user': user,
         'form': form
     })
+
+
+@login_required
+def enroll_in_course(request, course_id):
+    course = get_object_or_404(ProfessionalCourse, id=course_id)
+    Enrollment.objects.get_or_create(user=request.user, course=course)
+    return redirect('my_courses')
+
+
+@login_required
+def my_courses_view(request):
+    enrollments = Enrollment.objects.filter(user=request.user).select_related('course')
+    return render(request, 'student/my_courses.html', {'enrollments': enrollments})
+
+
+# ✅ صفحة الدفع عند الضغط على "اشترك الآن"
+@login_required
+def payment_view(request, course_id):
+    course = get_object_or_404(ProfessionalCourse, id=course_id)
+
+    if request.method == 'POST':
+        Enrollment.objects.get_or_create(user=request.user, course=course)
+        messages.success(request, f"تم الاشتراك بنجاح في دورة: {course.title}")
+        return redirect('home')  # التوجيه للصفحة الرئيسية بعد الدفع
+
+    return render(request, 'payment.html', {'course': course})

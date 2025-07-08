@@ -3,6 +3,27 @@
 
 <main style="font-family: 'Segoe UI', sans-serif; padding: 40px 20px; background-color: #f3f4f6; text-align: center;">
 
+    <!-- ✅ رسائل التنبيه -->
+    {% if messages %}
+<div id="message-box">
+    {% for message in messages %}
+        <div style="background-color: #d1fae5; color: #065f46; padding: 15px; border-radius: 8px; width: fit-content; margin: auto; margin-bottom: 20px;">
+            {{ message }}
+        </div>
+    {% endfor %}
+</div>
+
+<script>
+    setTimeout(function () {
+        const box = document.getElementById('message-box');
+        if (box) {
+            box.style.display = 'none';
+        }
+    }, 5000);  // 5 ثواني
+</script>
+{% endif %}
+
+
     <!-- الترحيب -->
     <h1 style="font-size: 36px; color: #1e3a8a; margin-bottom: 20px;">
         👋 مرحبًا بك في أكاديمية تَميُّز، منصتك التعليمية الذكية
@@ -138,4 +159,4 @@
 </main>
 
 
- {% include "footer.html" %}
+{% include "footer.html" %}

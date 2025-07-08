@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from .models import ProfessionalCourse
+# from instructor.models import Course
+
 
 
 

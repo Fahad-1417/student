@@ -19,7 +19,7 @@ urlpatterns = [
     path('new-account/', TemplateView.as_view(template_name='dashboard/new_account.html'), name='new_account'),
     path('', include('student.urls')),
 
-  # الصفحة الرئيسية
+  
 ]
 
 

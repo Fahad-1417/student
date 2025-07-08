@@ -1,0 +1,20 @@
+{% include 'header.html' %}
+
+<div class="container" style="padding: 40px; text-align: center; font-family: 'Segoe UI', sans-serif;">
+    <h2 style="font-size: 28px; margin-bottom: 30px; color: #1e3a8a;">
+        📚 دوراتي
+    </h2>
+
+    <ul style="list-style: none; padding: 0;">
+        {% for enrollment in enrollments %}
+            <li style="background-color: #f9fafb; border: 1px solid #e5e7eb; padding: 20px; border-radius: 8px; margin-bottom: 15px; max-width: 600px; margin-left: auto; margin-right: auto;">
+                <strong>{{ enrollment.course.title }}</strong><br>
+                📅 انضم بتاريخ: {{ enrollment.enrolled_at|date:"Y-m-d H:i" }}
+            </li>
+        {% empty %}
+            <p style="color: #6b7280;">لم تقم بالاشتراك في أي دورة حتى الآن.</p>
+        {% endfor %}
+    </ul>
+</div>
+
+{% include 'footer.html' %}

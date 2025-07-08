@@ -30,6 +30,10 @@
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
             text-align: center;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            min-height: 550px;
         }
 
         .course-card:hover {
@@ -39,20 +43,39 @@
 
         .course-card img {
             max-width: 120px;
-            margin-bottom: 15px;
+            margin: 0 auto 15px auto; /* ✅ جعل الصورة في المنتصف */
+            display: block;
         }
 
         .course-card h2 {
             color: #1a237e;
+            font-size: 18px;
+            margin-bottom: 10px;
         }
 
         .course-card p {
             color: #333;
-            margin: 10px 0;
+            margin: 8px 0;
+            font-size: 15px;
         }
 
         .course-card .info {
             font-weight: bold;
+        }
+
+        .subscribe-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #1a237e;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+            margin-top: auto;
+        }
+
+        .subscribe-btn:hover {
+            background-color: #3949ab;
         }
 
         h1.title {
@@ -67,6 +90,10 @@
                 flex-direction: column;
                 align-items: center;
             }
+
+            .course-card {
+                width: 90%;
+            }
         }
     </style>
 </head>
@@ -75,8 +102,10 @@
     <!-- ✅ الشريط العلوي -->
     {% include 'header.html' %}
 
-    <!-- ✅ محتوى الدورات -->
+    <!-- ✅ عنوان الصفحة -->
     <h1 class="title">الدورات الاحترافية</h1>
+
+    <!-- ✅ البطاقات -->
     <div class="courses-container">
         {% for course in courses %}
             <div class="course-card">
@@ -84,8 +113,11 @@
                 <h2>{{ course.title }}</h2>
                 <p>{{ course.description }}</p>
                 <p class="info">💰 السعر: {{ course.price }} ريال</p>
-                <p class="info">⏳ المدة: {{ course.duration }}</p>
-                <p class="info">📅 تاريخ البداية: {{ course.start_date }}</p>
+                <p class="info">⏳ المدة: {{ course.duration }} أشهر</p>
+                <p class="info">📅 تاريخ البداية: {{ course.start_date|date:"M. d, Y" }}</p>
+
+                <!-- ✅ زر الاشتراك أسفل البطاقة -->
+                <a href="{% url 'payment' course.id %}" class="subscribe-btn">اشترك الآن</a>
             </div>
         {% empty %}
             <p style="text-align: center;">لا توجد دورات حالياً.</p>
